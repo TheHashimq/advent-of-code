@@ -75,8 +75,6 @@ get_value_from_mul(const std::vector<std::string> &validatedList) {
 
 std::vector<std::string> findMul(const std::string &inp) {
   std::vector<std::string> res;
-
-  // Regular expression to match "mul(x,y)" where x and y are integers
   std::regex mulRegex(R"(mul\(\d+,\d+\))");
   std::sregex_iterator begin(inp.begin(), inp.end(), mulRegex);
   std::sregex_iterator end;
