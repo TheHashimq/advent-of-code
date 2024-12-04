@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 
   for (int i = 0; i < 1000; i++) {
     std::string line;
-    if (!std::getline(std::cin, line)) { // Read the entire line
+    if (!std::getline(std::cin, line)) { 
       std::cerr << "Error reading input. Terminating." << std::endl;
       break;
     }
@@ -28,14 +28,12 @@ int main(int argc, char **argv) {
     }
   }
 
-  std::cout << "----------------------DONE-------------------" << std::endl;
 
-  // Process each report
   for (const auto &report : list) {
     if (is_safe(report) && is_increasing_or_decreasing(report)) {
-      ++safe_count; // Safe without modification
+      ++safe_count; 
     } else if (dampener(report)) {
-      ++safe_count; // Safe after applying Problem Dampener
+      ++safe_count; 
     }
   }
 
@@ -48,7 +46,6 @@ bool dampener(std::vector<int> &list, const int i) {
   return true;
 }
 
-// Check if the report's adjacent differences are within the range [1, 3]
 bool is_safe(const std::vector<int> &list) {
   for (size_t i = 0; i < list.size() - 1; ++i) {
     int diff = std::abs(list[i] - list[i + 1]);
@@ -59,7 +56,6 @@ bool is_safe(const std::vector<int> &list) {
   return true;
 }
 
-// Check if the report is either increasing or decreasing
 bool is_increasing_or_decreasing(const std::vector<int> &list) {
   bool increasing = true, decreasing = true;
   for (size_t i = 0; i < list.size() - 1; ++i) {
@@ -73,11 +69,10 @@ bool is_increasing_or_decreasing(const std::vector<int> &list) {
   return increasing || decreasing;
 }
 
-// Apply the Problem Dampener logic: try removing one level and check
 bool dampener(const std::vector<int> &list) {
   for (size_t i = 0; i < list.size(); ++i) {
     std::vector<int> modified_list = list;
-    modified_list.erase(modified_list.begin() + i); // Remove one level
+    modified_list.erase(modified_list.begin() + i); 
     if (is_safe(modified_list) && is_increasing_or_decreasing(modified_list)) {
       return true;
     }
