@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> replace_comman(const std::vector<std::string> &input);
+std::vector<std::string> replace_comma(const std::vector<std::string> &input);
 
 std::vector<std::vector<int>>
 get_un_ordered_pages(std::vector<std::vector<int>> &pagingList,
@@ -47,7 +47,7 @@ int main(int argc, char **argv) {
     ss >> num1 >> delimiter >> num2;
     pagingOrder.push_back({num1, num2});
   }
-  inputList2 = replace_comman(inputList2);
+  inputList2 = replace_comma(inputList2);
 
   std::vector<int> temp{};
   for (const auto &v : inputList2) {
@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
   return 0;
 }
 
-std::vector<std::string> replace_comman(const std::vector<std::string> &input) {
+std::vector<std::string> replace_comma(const std::vector<std::string> &input) {
   std::vector<std::string> outList{};
   std::string intString{};
   for (auto v : input) {
