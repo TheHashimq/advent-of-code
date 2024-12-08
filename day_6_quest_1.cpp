@@ -42,13 +42,6 @@ int main(int argc, char **argv) {
   std::cout << "Found Guard at" << guardPosition[0] << " " << guardPosition[1]
             << std::endl;
 
-  /*
-  for (int i = 0; i < 40; i++) {
-
-    guardMove();
-    printMap();
-  };
-  */
   while (guardPosition[0] >= 0 && guardPosition[0] < HEIGHT &&
          guardPosition[1] >= 0 && guardPosition[1] < WIDTH) {
     guardMove();
