@@ -8,7 +8,7 @@
 
 //
 //
-//  
+//
 // NOTE : Please use this code with limited about of input like :200-300 lines
 // 	 if your input is more than that please do it in parts :cries:
 // 	 i will learn more and make it better!.
@@ -81,7 +81,7 @@ std::vector<std::vector<char>> findPermutations(const int &size) {
 }
 
 bool isValid(std::vector<ull> &vec) {
-  ull out = vec[0]; 
+  ull out = vec[0];
   std::vector<std::vector<char>> permutations =
       findPermutations(vec.size() - 2);
   std::stack<ull> stk;
@@ -90,16 +90,16 @@ bool isValid(std::vector<ull> &vec) {
     stk.push(vec[i]);
   }
 
-  auto tempStk = stk; 
+  auto tempStk = stk;
 
   for (auto v : permutations) {
     ull Result{};
-    stk = tempStk; 
+    stk = tempStk;
     bool validPermutation = true;
     for (auto c : v) {
       if (stk.size() < 2) {
         validPermutation = false;
-        break; 
+        break;
       }
 
       ull operand1 = stk.top();
@@ -119,10 +119,10 @@ bool isValid(std::vector<ull> &vec) {
     }
 
     if (validPermutation && Result == out) {
-      return true; 
+      return true;
     }
   }
-  return false; 
+  return false;
 }
 
 /*
