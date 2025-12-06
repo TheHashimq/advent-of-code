@@ -1,16 +1,20 @@
 use std::fs;
+use std::time::Instant;
 
 fn main() {
     let input = fs::read_to_string("input.txt").expect("input file missing");
     let lines: Vec<&str> = input.lines().collect();
 
+    let start1 = Instant::now();
     let ans1 = part1(&lines);
-    println!("Part 1: {}", ans1);
+    let duration1 = start1.elapsed();
+    println!("Part 1: {} (time: {:?})", ans1, duration1);
 
+    let start2 = Instant::now();
     let ans2 = part2(&lines);
-    println!("Part 2: {}", ans2);
+    let duration2 = start2.elapsed();
+    println!("Part 2: {} (time: {:?})", ans2, duration2);
 }
-
 
 fn parse_input(lines: &[&str]) -> (Vec<(i64, i64)>, Vec<i64>) {
     let mut ranges: Vec<(i64, i64)> = Vec::new();
